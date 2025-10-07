@@ -1,0 +1,21 @@
+name: Call Dify App on Schedule
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # 毎日9:00 JST（UTC 0:00）
+  workflow_dispatch:
+
+jobs:
+  call-dify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call Dify App API
+        run: |
+          curl -X POST "https://api.dify.ai/v1/apps/xxxxxxxx/run" \
+            -H "Authorization: Bearer ${{ secrets.DIFY_API_KEY }}" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "inputs": {
+                "question": "定時実行テストです。"
+              }
+            }'
