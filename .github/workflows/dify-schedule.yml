@@ -2,7 +2,7 @@ name: Call Dify App on Schedule
 
 on:
   schedule:
-    - cron: '0 10 * * *'  # 毎日9:00 JST（UTC 0:00）
+    - cron: '30 23 * * *'  # 毎日23:30 JST（UTC 8:30）
   workflow_dispatch:
 
 jobs:
