@@ -2,8 +2,7 @@ name: Call Dify App on Schedule
 
 on:
   schedule:
-    - cron: '30 23 * * *'  # 毎日23:30 JST（UTC 8:30）
-    - cron: '50 0 * * *'  # 毎日0:50 JST（UTC 9:5）
+    - cron: '40 1 * * *'  # 毎日1:40 JST（UTC 10:40）
   workflow_dispatch:
 
 jobs:
@@ -16,9 +15,7 @@ jobs:
             -H "Authorization: Bearer ${{ secrets.DIFY_API_KEY }}" \
             -H "Content-Type: application/json" \
             -d '{
-              "inputs": {
-                "question": "定時実行テストです。"
-              },
+              "inputs": {},
               "response_mode": "streaming",
               "user": "abc-123"
             }'
