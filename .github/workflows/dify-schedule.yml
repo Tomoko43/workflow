@@ -2,7 +2,7 @@ name: Call Dify App on Schedule
 
 on:
   schedule:
-    - cron: '40 1 * * *'  # ñàì˙1:40 JSTÅiUTC 10:40Åj
+    - cron: '0 11 * * *'  # ñàì˙11:00 JST
   workflow_dispatch:
 
 jobs:
@@ -15,7 +15,9 @@ jobs:
             -H "Authorization: Bearer ${{ secrets.DIFY_API_KEY }}" \
             -H "Content-Type: application/json" \
             -d '{
-              "inputs": {},
+              "inputs": {
+                "question": "test"
+              },
               "response_mode": "streaming",
               "user": "abc-123"
             }'
